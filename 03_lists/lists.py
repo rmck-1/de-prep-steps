@@ -20,7 +20,11 @@ get_even_nums([1, 2, 3]) # returns [2]
 
 def get_even_nums(nums):
     # your code here
-    pass
+    new_list = []
+    for i in nums:
+        if i % 2 == 0:
+            new_list.append(i)
+    return new_list
 
 
 @run_test
@@ -64,32 +68,36 @@ get_items_longer_than(['a','bb','ccc'], 4) # returns [];
 
 def get_items_longer_than(strs, max_len):
     # your code here
-    pass
+    new_list = []
+    for i in strs:
+        if len(i) > max_len:
+            new_list.append(i)
+    return new_list
 
 
 # ❗ Remember to change @skip_test to @run_test!
-@skip_test
+@run_test
 def get_items_longer_than_should_return_empty_list_when_no_strings():
     assert get_items_longer_than([], 1) == [], format_err_msg(
         [], get_items_longer_than([], 1)
     )
 
 
-@skip_test
+@run_test
 def get_items_longer_than_should_return_all_strings_longer_than_max_len():
     assert get_items_longer_than(["a", "bb"], 0) == ["a", "bb"], format_err_msg(
         ["a", "bb"], get_items_longer_than(["a", "bb"], 0)
     )
 
 
-@skip_test
+@run_test
 def get_items_longer_than_should_exclude_strings_shorter_than_max_len():
     assert get_items_longer_than(["a", "bb"], 3) == [], format_err_msg(
         [], get_items_longer_than(["a", "bb"], 3)
     )
 
 
-@skip_test
+@run_test
 def get_items_longer_than_should_exclude_strings_equal_to_max_len():
     assert get_items_longer_than(["a", "bb", "ccc"], 2) == ["ccc"], format_err_msg(
         ["ccc"], get_items_longer_than(["a", "bb", "ccc"], 2)
@@ -116,10 +124,10 @@ get_sandwich_filling(['a', 'b', 'c', 'd']) # returns ['b', 'c']
 
 def get_sandwich_filling(sandwich):
     # your code here
-    pass
+    return sandwich[1:len(sandwich)-1]
 
 
-@skip_test
+@run_test
 def get_sandwich_filling_should_return_list_with_single_filling():
     assert get_sandwich_filling(["bread", "lonely slice of cheese", "bread"]) == [
         "lonely slice of cheese"
@@ -129,7 +137,7 @@ def get_sandwich_filling_should_return_list_with_single_filling():
     )
 
 
-@skip_test
+@run_test
 def get_sandwich_filling_should_return_list_with_multiple_fillings():
     assert get_sandwich_filling(
         ["bread", "tomato", "lettuce", "cheese", "patty", "bread"]
@@ -141,7 +149,7 @@ def get_sandwich_filling_should_return_list_with_multiple_fillings():
     )
 
 
-@skip_test
+@run_test
 def get_sandwich_filling_should_return_empty_list_when_no_fillings():
     assert get_sandwich_filling(["bread", "bread"]) == [], format_err_msg(
         [], get_sandwich_filling(["bread", "bread"])
@@ -163,36 +171,40 @@ remove_item([3], 0) # returns []
 
 def remove_item(items, n):
     # your code here
-    pass
+    new_list = []
+    for index, value in enumerate(items):
+        if index != n:
+            new_list.append(value)
+    return new_list
 
 
-@skip_test
+@run_test
 def remove_item_should_return_list_with_specified_element_removed():
     assert remove_item([1], 0) == [], format_err_msg([], remove_item([1], 0))
 
 
-@skip_test
+@run_test
 def remove_item_should_return_list_containing_all_elements_that_havent_been_removed():
     assert remove_item([1, 2, 3, 4, 5], 2) == [1, 2, 4, 5], format_err_msg(
         [1, 2, 4, 5], remove_item([1, 2, 3, 4, 5], 2)
     )
 
 
-@skip_test
+@run_test
 def remove_item_should_only_remove_value_at_specified_index():
     assert remove_item([1, 2, 1, 2, 1], 2) == [1, 2, 2, 1], format_err_msg(
         [1, 2, 2, 1], remove_item([1, 2, 1, 2, 1], 2)
     )
 
 
-@skip_test
+@run_test
 def remove_item_should_return_new_list():
     items = [1, 2, 3]
     result = remove_item(items, 2)
     assert result is not items, format_err_msg("a new list", "original input list")
 
 
-@skip_test
+@run_test
 def remove_item_should_not_mutate_original_list():
     items = [1, 2, 3]
     remove_item(items, 2)
@@ -217,36 +229,37 @@ merge_lists([1, 2], [3, 4]) # returns [1, 2, 3, 4]
 
 def merge_lists(list1, list2):
     # your code here
-    pass
+    list3 = list1 + list2
+    return list3
 
 
-@skip_test
+@run_test
 def merge_lists_should_merge_two_single_element_lists_together():
     assert merge_lists([1], [2]) == [1, 2], format_err_msg(
         [1, 2], merge_lists([1], [2])
     )
 
 
-@skip_test
+@run_test
 def merge_lists_should_merge_two_multi_element_lists_together():
     assert merge_lists([1, 2, 3], [4, 5, 6]) == [1, 2, 3, 4, 5, 6], format_err_msg(
         [1, 2, 3, 4, 5, 6], merge_lists([1, 2, 3], [4, 5, 6])
     )
 
 
-@skip_test
+@run_test
 def merge_lists_should_merge_two_lists_when_one_is_empty():
     assert merge_lists([1, 2, 3], []) == [1, 2, 3], format_err_msg(
         [1, 2, 3], merge_lists([1, 2, 3], [])
     )
 
 
-@skip_test
+@run_test
 def merge_lists_should_merge_two_lists_when_both_are_empty():
     assert merge_lists([], []) == [], format_err_msg([], merge_lists([], []))
 
 
-@skip_test
+@run_test
 def merge_lists_should_not_mutate_original_lists():
     list1 = [1, 2, 3]
     list2 = [4, 5, 6]
@@ -280,31 +293,36 @@ present in two lists
 
 def is_item_omnipresent(lists, item):
     # your code here
-    pass
+    for numbers in lists:
+        if item in numbers:
+            pass
+        else:
+            return False
+    return True
 
 
-@skip_test
+@run_test
 def is_item_omnipresent_should_return_false_if_item_is_missing_from_all_lists():
     assert is_item_omnipresent([[1], [2]], 3) is False, format_err_msg(
         False, is_item_omnipresent([[1], [2]], 3)
     )
 
 
-@skip_test
+@run_test
 def is_item_omnipresent_should_return_false_if_item_is_missing_from_a_single_list():
     assert is_item_omnipresent([[1], [2]], 1) is False, format_err_msg(
         False, is_item_omnipresent([[1], [2]], 1)
     )
 
 
-@skip_test
+@run_test
 def is_item_omnipresent_should_return_true_if_item_is_present_in_all_lists():
     assert is_item_omnipresent([[1], [1], [1]], 1) is True, format_err_msg(
         True, is_item_omnipresent([[1], [1], [1]], 1)
     )
 
 
-@skip_test
+@run_test
 def is_item_omnipresent_should_return_true_if_item_is_present_amongst_other_elements_in_mixed_lists():
     assert is_item_omnipresent([[5, 4, 3, 2, 1], [1, 4, 4], [9, 1, 1]], 1) is True, (
         format_err_msg(
