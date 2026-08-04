@@ -22,3 +22,4 @@ terraform/init.sh
 zen.txt
 *.tfstate*
 test_api/plan_playground.py
+venv
