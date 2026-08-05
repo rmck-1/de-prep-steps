@@ -349,17 +349,20 @@ flatten_list_by_one([[1], [2], [[3, 4]]])  # returns [1, 2, [3, 4]]
 
 def flatten_list_by_one(nested_lists):
     # your code here
-    pass
+    flattened_list = []
+    for list in nested_lists:
+        flattened_list.extend(list)
+    return flattened_list
 
 
-@skip_test
+@run_test
 def flatten_list_by_one_should_remove_single_layer_of_nesting():
     assert flatten_list_by_one([[1], [2]]) == [1, 2], format_err_msg(
         [1, 2], flatten_list_by_one([[1], [2]])
     )
 
 
-@skip_test
+@run_test
 def flatten_list_by_one_should_preserve_subsequent_layers_of_nesting():
     assert flatten_list_by_one([[[1, 2]], [[3, 4]]]) == [
         [1, 2],
@@ -378,7 +381,7 @@ def flatten_list_by_one_should_preserve_subsequent_layers_of_nesting():
     )
 
 
-@skip_test
+@run_test
 def flatten_list_by_one_should_combine_levels_of_nesting():
     assert flatten_list_by_one([[1, 2], [3, [4, 5]]]) == [
         1,
