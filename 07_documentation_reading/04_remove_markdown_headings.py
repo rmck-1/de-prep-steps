@@ -23,8 +23,9 @@ def remove_mark_down_headings(markdown_heading):
     (There's one on this page that can do this https://docs.python.org/3/library/stdtypes.html#string-methods).
     
     """
-
-    pass
+    x = markdown_heading.replace('#', '')
+    x = x.lstrip()
+    return x
 
 
 @run_test
@@ -33,7 +34,7 @@ def test_remove_single_mark_down_headings():
         format_err_msg("Title", remove_mark_down_headings("# Title"))
 
 
-@skip_test
+@run_test
 def test_remove_multiple_mark_down_headings():
     assert remove_mark_down_headings("## Sub Heading") == "Sub Heading", \
         format_err_msg(

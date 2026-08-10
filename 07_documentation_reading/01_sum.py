@@ -16,8 +16,8 @@ def calculate_price_percentage(percentage_changes):
     Use the built-in sum function to work out the modified percentage.
     https://docs.python.org/3/library/functions.html#sum
     """
-
-    pass
+    price = sum(percentage_changes, 100)
+    return price
 
 
 @run_test
