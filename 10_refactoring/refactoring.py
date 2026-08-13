@@ -25,9 +25,9 @@ If you run python on this file, all tests should pass.
 
 
 def triple_nums(nums):
-    tripled = []
-    for i in range(len(nums)):
-        tripled.append(3 * nums[i])
+    tripled = [3*nums[i] for i in range(len(nums))]
+    #for i in range(len(nums)):
+        #tripled.append(3 * nums[i])
     return tripled
 
 
@@ -69,30 +69,30 @@ If you run python on this file, all tests should pass.
 
 
 def shout_names(names):
-    shouted_names = []
-    for name in names:
-        shouted_names.append(name.upper() + "!")
+    shouted_names = [name.upper()+'!' for name in names]
+    #for name in names:
+        #shouted_names.append(name.upper() + "!")
     return shouted_names
 
 
 # Do not change tests!
 
 
-@skip_test
+@run_test
 def shout_names_should_return_a_list():
     result = shout_names([])
     expected = []
     assert isinstance(result, list), format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def shout_names_should_return_empty_list_when_passed_empty_list():
     result = shout_names([])
     expected = []
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def shout_names_should_shout_names():
     result = shout_names(["Carrie", "Diya", "Kyle", "Christian"])
     expected = ["CARRIE!", "DIYA!", "KYLE!", "CHRISTIAN!"]
@@ -116,16 +116,16 @@ If you run python on this file, all tests should pass.
 
 
 def is_sweet_enough(food_items):
-    for i in range(len(food_items)):
-        if food_items[i]["flavour"] != "sweet":
-            return False
-    return True
+    return all(item['flavour']== 'sweet' for item in food_items)
+    #for i in range(len(food_items)):
+        #if food_items[i]["flavour"] != "sweet":
+            #return False
 
 
 # Do not change tests!
 
 
-@skip_test
+@run_test
 def is_sweet_enough_should_return_true_when_all_foods_are_sweet():
     result = is_sweet_enough(
         [
@@ -138,7 +138,7 @@ def is_sweet_enough_should_return_true_when_all_foods_are_sweet():
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def is_sweet_enough_should_return_false_when_no_foods_are_sweet():
     result = is_sweet_enough(
         [
@@ -151,7 +151,7 @@ def is_sweet_enough_should_return_false_when_no_foods_are_sweet():
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def is_sweet_enough_should_return_false_when_any_foods_are_not_sweet():
     result = is_sweet_enough(
         [
@@ -178,37 +178,37 @@ If you run python on this file, all tests should pass.
 
 
 def get_excited(text):
-    new_text = ""
-    for char in text:
-        if char == ".":
-            new_text += "!"
-        else:
-            new_text += char
-    return new_text
+    #new_text = ""
+    #for char in text:
+        #if char == ".":
+            #new_text += "!"
+        #else:
+            #new_text += char
+    return text.replace('.', '!')
 
 
-@skip_test
+@run_test
 def get_excited_should_return_empty_string_when_passed_empty_string():
     result = get_excited("")
     expected = ""
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def get_excited_should_return_unchanged_string_when_no_full_stops_present():
     result = get_excited("the quick brown fox jumps over the lazy dog")
     expected = "the quick brown fox jumps over the lazy dog"
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def get_excited_should_replace_full_stops_with_exclamation_marks_single_full_stop():
     result = get_excited("We're gonna need a bigger boat.")
     expected = "We're gonna need a bigger boat!"
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def get_excited_should_replace_full_stops_with_exclamation_marks_multiple_full_stops():
     result = get_excited("Woo. Woo. Woo. Who's ready to code?")
     expected = "Woo! Woo! Woo! Who's ready to code?"
@@ -225,27 +225,29 @@ Refactor shrek_characters to use a comprehension.
 
 If you run python on this file, all tests should pass.
 """
+# return all(item['flavour']== 'sweet' for item in food_items)
 
+# shouted_names = [name.upper()+'!' for name in names]
 
 def shrek_characters(characters):
-    shreks = []
-    for character in characters:
-        if "Shrek" in character["movie"]:
-            shreks.append(character["name"])
+    shreks = [character['name'] for character in characters if character['movie'] == 'Shrek']
+    #for character in characters:
+        #if "Shrek" in character["movie"]:
+            #shreks.append(character["name"])
     return shreks
 
 
 # Do not change tests!
 
 
-@skip_test
+@run_test
 def shrek_characters_should_return_empty_list_when_passed_empty_list():
     result = shrek_characters([])
     expected = []
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def shrek_characters_should_return_empty_list_when_no_shrek_characters():
     result = shrek_characters(
         [
@@ -258,7 +260,7 @@ def shrek_characters_should_return_empty_list_when_no_shrek_characters():
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def shrek_characters_should_return_list_of_shrek_characters():
     result = shrek_characters(
         [
