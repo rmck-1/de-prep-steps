@@ -24,7 +24,9 @@ def extract_code(text):
     You should extract that number from the string and return it as
     an integer
     """
-    pass
+    found = re.search(r'\d+', text)
+    print(found.group())
+    return int(found.group()) if found else None
 
 
 @run_test

@@ -23,8 +23,8 @@ def is_valid_sort_code(text):
 
     You should return True if the sort code is valid, and False otherwise
     """
-    pass
-
+    valid = re.fullmatch(r'\d\d\-\d\d\-\d\d', text)
+    return True if valid else False
 
 @run_test
 def test_is_valid_sort_code_returns_true_if_sort_code_in_the_correct_format():
@@ -36,7 +36,7 @@ def test_is_valid_sort_code_returns_true_if_sort_code_in_the_correct_format():
         format_err_msg(True, is_valid_sort_code("85-16-23"))
 
 
-@skip_test
+@run_test
 def test_is_valid_sort_code_returns_false_if_sort_code_NOT_in_the_correct_format():
     assert not is_valid_sort_code("51-349-67"), \
         format_err_msg(False, is_valid_sort_code("51-349-67"))
