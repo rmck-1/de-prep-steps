@@ -225,10 +225,6 @@ Refactor shrek_characters to use a comprehension.
 
 If you run python on this file, all tests should pass.
 """
-# return all(item['flavour']== 'sweet' for item in food_items)
-
-# shouted_names = [name.upper()+'!' for name in names]
-
 def shrek_characters(characters):
     shreks = [character['name'] for character in characters if character['movie'] == 'Shrek']
     #for character in characters:
