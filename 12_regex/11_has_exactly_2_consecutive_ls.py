@@ -26,7 +26,13 @@ def has_exactly_2_consecutive_ls(text):
 
     You should return True if this is the case, and False otherwise
     """
-    pass
+    double_letters = len(re.findall(r'll', text))
+    if double_letters != 1:
+        return False
+    else:
+        return True
+
+
 
 
 @run_test
@@ -47,7 +53,7 @@ def test_returns_true_when_two_consecutive_ls_found():
         format_err_msg(True, has_exactly_2_consecutive_ls("well"))
 
 
-@skip_test
+@run_test
 def test_returns_false_when_exactly_two_consecutive_ls_not_found():
     assert not has_exactly_2_consecutive_ls("mile"), \
         format_err_msg(False, has_exactly_2_consecutive_ls("mile"))

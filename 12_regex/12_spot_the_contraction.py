@@ -33,7 +33,11 @@ def spot_the_contraction(text):
     - "Sometimes I don't like to get up early" True
     - "Don't feed the birds" True
     """
-    pass
+    contractions = len(re.findall(r"I'm|don't|I've", text, re.IGNORECASE))
+    if contractions > 0:
+        return True
+    else:
+        return False
 
 
 @run_test
@@ -46,7 +50,7 @@ def test_spot_the_contraction_returns_true_when_contraction_spotted():
             "I've got a collection of foreign coins"))
 
 
-@skip_test
+@run_test
 def test_spot_the_contraction_returns_false_when_contraction_not_spotted():
     assert not spot_the_contraction("do not"), \
         format_err_msg(False, spot_the_contraction("do not"))

@@ -18,7 +18,6 @@ def exact_6_abcs():
     # You should look up regex anchors for this exercise.
     
     YOUR_REGEX_HERE = '^[abc]{6}$'
-    print(re.compile(YOUR_REGEX_HERE))
     # replace 'x' with an appropriate regular expression pattern
     return re.compile(YOUR_REGEX_HERE)
 
