@@ -1,5 +1,5 @@
 # ADD YOUR IMPORTS HERE
-
+from faker import Faker
 
 # PLEASE DO NOT MAKE CHANGES BELOW THIS LINE
 

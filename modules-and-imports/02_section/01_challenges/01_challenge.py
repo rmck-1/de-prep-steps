@@ -1,5 +1,6 @@
-import sys
+#import sys
 # MAKE YOUR CHANGES TO `sys.path` HERE
+#sys.path.append('/Users/rossmckaig/de-prep-steps/modules-and-imports/examples')
 
 
 # PLEASE DO NOT MAKE CHANGES BELOW THIS LINE
