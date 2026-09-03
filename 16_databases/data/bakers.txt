@@ -1,8 +1,8 @@
 ids, names, bakery 
 
-1, 'Harrison', 'Flower Power'
-2, 'Niamh', 'Bread Zeppelin'
-3, 'Poonam', 'Pain Au Rajput'
-4, 'Lewis', 'Lews Buns'
-5, 'Kyle', 'The Bun Also Rises'
-6, 'Rob', 'Robs Cobs'
+(1, 'Harrison', 'Flower Power'),
+(2, 'Niamh', 'Bread Zeppelin'),
+(3, 'Poonam', 'Pain Au Rajput'),
+(4, 'Lewis', 'Lews Buns'),
+(5, 'Kyle', 'The Bun Also Rises'),
+(6, 'Rob', 'Robs Cobs');
